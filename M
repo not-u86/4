@@ -1,0 +1,36 @@
+void AddNewProduct()
+{
+    std::wstring name, priceStr, countStr;
+    double price;
+    size_t count;
+
+    std::wcout << L"\nВведите название нового товара: ";
+    GetLine(name);
+
+    std::wcout << L"Введите цену товара: ";
+    GetLine(priceStr);
+
+    std::wcout << L"Введите количество товара: ";
+    GetLine(countStr);
+
+    price = std::stod(priceStr);
+    count = std::stoull(countStr);
+
+    size_t newId = sizeSt + 1;
+
+    ArrPushBack(idArr, sizeSt);
+    ArrPushBack(nameArr, sizeSt);
+    ArrPushBack(countArr, sizeSt);
+    ArrPushBack(priceArr, sizeSt);
+
+    idArr[sizeSt - 1] = newId;
+    nameArr[sizeSt - 1] = name;
+    countArr[sizeSt - 1] = count;
+    priceArr[sizeSt - 1] = price;
+
+    sizeSt++;
+    currentStorageSize += count;
+
+    std::wcout << L"\nТовар успешно добавлен!\n";
+    Sleep(1500);
+}
